@@ -8,20 +8,20 @@ package com.jump.standardtest.domain.test.redis;
  */
 public interface RedisTest {
     /**
-     * 测试redis客户端redisson
-     * @return
-     * @throws InterruptedException
-     */
-    String testRedissonClient() throws InterruptedException;
+//     * 测试redis客户端redisson
+//     * @return
+//     * @throws InterruptedException
+//     */
+//    String testRedissonClient() throws InterruptedException;
 
-    /**
-     * 测试redis客户端spring data redis
-     * @return
-     */
-    String testRedisTemplate();
+//    /**
+//     * 测试redis客户端spring data redis
+//     * @return
+//     */
+//    String testRedisTemplate();
 
-    /**
-     * 测试redisson延迟队列
-     */
-    void testRedissonBlocking();
+//    /**
+//     * 测试redisson延迟队列
+//     */
+//    void testRedissonBlocking();
 }

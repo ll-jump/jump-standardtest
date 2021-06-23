@@ -67,18 +67,13 @@
 <!--&lt;!&ndash;      <version>2.2.7.RELEASE</version>&ndash;&gt;-->
 <!--      <version>2.5.3.RELEASE</version>-->
 <!--    </dependency>-->
-  <!-- redisson -->
+
+    <!-- redisson -->
 <!--    <dependency>-->
 <!--      <groupId>org.redisson</groupId>-->
-<!--      <artifactId>redisson</artifactId>-->
+<!--      <artifactId>redisson-spring-boot-starter</artifactId>-->
 <!--      <version>3.13.3</version>-->
 <!--    </dependency>-->
-    <!-- redisson -->
-    <dependency>
-      <groupId>org.redisson</groupId>
-      <artifactId>redisson-spring-boot-starter</artifactId>
-      <version>3.13.3</version>
-    </dependency>
   </dependencies>
 
   <build>

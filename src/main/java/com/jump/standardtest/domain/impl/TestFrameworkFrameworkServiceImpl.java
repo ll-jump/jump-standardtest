@@ -32,8 +32,8 @@ public class TestFrameworkFrameworkServiceImpl implements TestFrameworkService {
 
     @Autowired
     OutC.AbstractTestImpl abstractTest;
-    @Autowired
-    JedisClient jedisClient;
+//    @Autowired
+//    JedisClient jedisClient;
     //    @Autowired
     //    private KafkaTemplate<byte[], byte[]> kafkaTemplate;
     @Autowired
@@ -43,25 +43,27 @@ public class TestFrameworkFrameworkServiceImpl implements TestFrameworkService {
 
     @Override
     public String testHttpClient() {
-        jedisClient.set("aa", "aav");
-        System.out.println(abstractTest.getA());
-        String res0 = httpClientService.postJson("https://www.baidu.com/", null);
-        System.out.println("0:" + res0);
-        String res = httpClientService.postJson("https://www.baidu.com/", null);
-        System.out.println("1:" + res);
-        String res2 = ((HttpClientEx)httpClientService).postJsonA("https://www.baidu.com/", null);
-        System.out.println("2:" + res2);
-        return res0;
+//        jedisClient.set("aa", "aav");
+//        System.out.println(abstractTest.getA());
+//        String res0 = httpClientService.postJson("https://www.baidu.com/", null);
+//        System.out.println("0:" + res0);
+//        String res = httpClientService.postJson("https://www.baidu.com/", null);
+//        System.out.println("1:" + res);
+//        String res2 = ((HttpClientEx)httpClientService).postJsonA("https://www.baidu.com/", null);
+//        System.out.println("2:" + res2);
+//        return res0;
+        return null;
     }
 
     @Override
     public String testJedis() {
-        RedisTestBO redisTestBO = new RedisTestBO();
-        redisTestBO.setKey("testA");
-        redisTestBO.setValue("阿巴拉");
-        jedisClient.set("test-a", redisTestBO, 100);
-        RedisTestBO r = jedisClient.get("test-a", RedisTestBO.class);
-        return r.toString();
+//        RedisTestBO redisTestBO = new RedisTestBO();
+//        redisTestBO.setKey("testA");
+//        redisTestBO.setValue("阿巴拉");
+//        jedisClient.set("test-a", redisTestBO, 100);
+//        RedisTestBO r = jedisClient.get("test-a", RedisTestBO.class);
+//        return r.toString();
+        return null;
     }
 
     @Override
@@ -89,41 +91,41 @@ public class TestFrameworkFrameworkServiceImpl implements TestFrameworkService {
 
     @Override
     public String testRedisLock() {
-        boolean lock = jedisClient.lock("1","1", 60, 10L);
-        System.out.println("thread1"+ lock);
-        System.out.println("thread1"+jedisClient.getString("1"));
-        final Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("thread2 start.");
-                boolean lock = jedisClient.lock("1","2", 60, 30L);
-                System.out.println("thread2 lock:" + lock);
-                System.out.println("thread2:"+jedisClient.getString("1"));
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                if (lock){
-                    String r = jedisClient.unlock("1","2");
-                    System.out.println("thread2 unlock:" + r);
-                }
-
-            }
-        });
-        thread.start();
-        try {
-            Thread.sleep(20000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-       String r = jedisClient.unlock("1","1");
-        System.out.println(r);
-        try {
-            Thread.sleep(50000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        boolean lock = jedisClient.lock("1","1", 60, 10L);
+//        System.out.println("thread1"+ lock);
+//        System.out.println("thread1"+jedisClient.getString("1"));
+//        final Thread thread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                System.out.println("thread2 start.");
+//                boolean lock = jedisClient.lock("1","2", 60, 30L);
+//                System.out.println("thread2 lock:" + lock);
+//                System.out.println("thread2:"+jedisClient.getString("1"));
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                if (lock){
+//                    String r = jedisClient.unlock("1","2");
+//                    System.out.println("thread2 unlock:" + r);
+//                }
+//
+//            }
+//        });
+//        thread.start();
+//        try {
+//            Thread.sleep(20000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//       String r = jedisClient.unlock("1","1");
+//        System.out.println(r);
+//        try {
+//            Thread.sleep(50000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return null;
     }
 }
